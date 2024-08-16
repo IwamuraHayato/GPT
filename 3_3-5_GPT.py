@@ -42,7 +42,7 @@ def run_gpt(content_text_to_gpt, content_kind_of_to_gpt, content_maxStr_to_gpt):
     )
 
     # 返って来たレスポンスの内容はresponse.choices[0].message.content.strip()に格納されてます。
-    output_content = response.choices[0].message.['content'].strip()
+    output_content = response.choices[0].message.content.strip()
     return output_content # 返って来たレスポンスの内容を返す
 
 st.title('GPTに記事書かせるアプリ') #タイトル

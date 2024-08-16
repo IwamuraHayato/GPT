@@ -1,5 +1,4 @@
 import streamlit as st # フロントエンドを扱うstreamlitの機能をインポート
-from openai import OpenAI # openAIのchatGPTのAIを活用するための機能をインポート
 import openai
 import os # OSが持つ環境変数OPENAI_API_KEYにAPIを入力するためにosにアクセスするためのライブラリをインポート
 
@@ -35,7 +34,7 @@ def run_gpt(content_text_to_gpt, content_kind_of_to_gpt, content_maxStr_to_gpt):
     request_to_gpt = content_text_to_gpt + "また、これを記事として読めるように、記事のタイトル、目次、内容の順番で出力してください。内容は"+ content_maxStr_to_gpt + "文字以内で出力してください。" + "また、文章は" + content_kind_of_to_gpt + "にしてください。"
     
     # 決めた内容を元にclient.chat.completions.createでchatGPTにリクエスト。オプションとしてmodelにAIモデル、messagesに内容を指定
-    response = client.chat.completions.create(
+    response = openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": request_to_gpt },
@@ -43,7 +42,7 @@ def run_gpt(content_text_to_gpt, content_kind_of_to_gpt, content_maxStr_to_gpt):
     )
 
     # 返って来たレスポンスの内容はresponse.choices[0].message.content.strip()に格納されてます。
-    output_content = response.choices[0].message.content.strip()
+    output_content = response.choices[0].message.['content'].strip()
     return output_content # 返って来たレスポンスの内容を返す
 
 st.title('GPTに記事書かせるアプリ') #タイトル

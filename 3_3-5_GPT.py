@@ -1,4 +1,5 @@
 import streamlit as st # フロントエンドを扱うstreamlitの機能をインポート
+from openai import OpenAI # openAIのchatGPTのAIを活用するための機能をインポート
 import openai
 import os # OSが持つ環境変数OPENAI_API_KEYにAPIを入力するためにosにアクセスするためのライブラリをインポート
 

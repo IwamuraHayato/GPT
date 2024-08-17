@@ -2,7 +2,7 @@ import streamlit as st # フロントエンドを扱うstreamlitの機能をイ�
 import openai
 import os # OSが持つ環境変数OPENAI_API_KEYにAPIを入力するためにosにアクセスするためのライブラリをインポート
 
-api_key = os.environ["OPENAI_API_KEY"]
+api_key = st.secrets["OPENAI_API_KEY"]
 # openAIの機能をclientに代入
 client = OpenAI(api_key= api_key)
 

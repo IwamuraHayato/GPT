@@ -3,9 +3,9 @@ from openai import OpenAI # openAIのchatGPTのAIを活用するための機能�
 import openai
 import os # OSが持つ環境変数OPENAI_API_KEYにAPIを入力するためにosにアクセスするためのライブラリをインポート
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
+api_key = os.environ["OPENAI_API_KEY"]
 # openAIの機能をclientに代入
-client = OpenAI()
+client = OpenAI(api_key= api_key)
 
 content_kind_of = [
     "中立的で客観的な文章",

@@ -38,7 +38,7 @@ def run_gpt(content_text_to_gpt, content_kind_of_to_gpt, content_maxStr_to_gpt):
     
     # 決めた内容を元にclient.chat.completions.createでchatGPTにリクエスト。オプションとしてmodelにAIモデル、messagesに内容を指定
     response = openai.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": request_to_gpt },
         ],
